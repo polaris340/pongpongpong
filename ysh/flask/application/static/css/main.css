@@ -1,0 +1,15 @@
+
+/* Main stylesheet */
+
+/* @section forms */
+.btn.cancel { margin-left: 0.5rem; }
+.nowrap { white-space: nowrap; }
+
+/* Your customizations here */
+.table
+{
+	width : 60% !important;
+	
+	margin-top : 20px;
+	float: none !important;
+}	
