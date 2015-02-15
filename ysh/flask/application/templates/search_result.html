@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<table class="table table-bordered table-striped">
+	<thread>
+	<tr>
+		<td >content</td>
+	</tr>
+	</thread>
+{% for li in query %}
+	<tr>
+		<td>
+		<p align="center"	>
+			{{ li.text }}
+		</p>
+		</td>
+	</tr>
+{% endfor %}
+</table>
+
+
+
+{% endblock content %}
+
+
