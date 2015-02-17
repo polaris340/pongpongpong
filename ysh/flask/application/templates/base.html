@@ -49,12 +49,12 @@
         </div>
 
         </div>
-<!-- autocomplete 
+<!-- autocomplete -->`
          <div class="ui-widget">
                 {{ g.Autocomplete.csrf_token }}
                 {{ g.Autocomplete.autocomplete(id="autocomplete")}}
           </div>
--->
+
         
         <div id="body_content">
             {% block content %}{# main content area #}{% endblock %}
@@ -75,18 +75,17 @@
     {% block tail_script %}{# defer-capable JS block #}{% endblock %}
     
     <script type="text/javascript">
-    
-
     $(function() {
     $.ajax({
         url: '{{ url_for("autocomplete") }}'
         }).done(function (data) {
             $('#autocomplete').autocomplete({
                 source: data.json_list,
-                minLength: 2.0
+                minLength: 2
             });
         });
-    }); 
+    });
+    
 
     </script>
 

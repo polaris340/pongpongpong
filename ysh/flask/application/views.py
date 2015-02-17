@@ -28,7 +28,9 @@ def before_requests():
 
 def index():
 #    addUser(55,'44','1')
-    return render_template('list_example')
+    data = [['id','book','cost'],['1','manque','1000']]
+    return render_template('list_examples.html', data= data)
+
 
 # def home():
 #     return redirect(url_for('list_examples'))
@@ -45,7 +47,8 @@ def list_examples():
 #    print(g.SearchForm.validate_on_submit(), request.method =='POST','validation on submit check')
     if g.SearchForm.validate_on_submit():       
         return redirect(url_for('search_results', query=g.SearchForm.search.data))
-    return render_template('list_examples.html')
+    data = [['id','book','cost'],['1','manque','1000']]
+    return render_template('list_examples.html', data= data)
 
 
 
@@ -72,13 +75,33 @@ def search_results(query):
 
 from flask import jsonify
 
+
+import pymysql
+
 NAMES=["abc","abcd","abcde","abcdef"]
 
+#@app.route('/autocomplete',methods=['GET'])
 def autocomplete():
     search = request.args.get('term')
-    app.logger.debug(search)
 
-    return jsonify(json_list=NAMES)
+    app.logger.debug(search)
+    return jsonify(json_list=NAMES) 
+
+# def autocomplete():
+#     conn = pymysql.connect(host='127.0.0.1',user='root',passwd='ybigta',db='gooditt',charset='utf8')
+#     cur = conn.cursor()
+#     search = request.args.get('term')
+#     print(search)   
+#     app.logger.debug(search)
+#     if search:
+#         cur.execute('set names utf8')
+#         findQuery = "select * from book where title like '%"+search+"%';"
+#         cur.execute(findQuery)
+#         NAMES = [li for li in cur.fetchall()]
+#     else:
+#         NAMES='no result'
+#     NAMES=["abc","abcd","abcde","abcdef"]
+#     return jsonify(json_list=NAMES)
 
 
 

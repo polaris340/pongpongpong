@@ -18,18 +18,13 @@
 
 <table class="table">
 	<thread>
+		{% for row in data %}
 		<tr>
-			<td>number</td>
-			<td>Book name</td>
-			<td>cost</td>
+			<td>{{ row[0] }}</td>
+			<td>{{ row[1] }}</td>
+			<td>{{ row[2] }}</td>
 		</tr>
-		<tr>
-			<td>1</td>
-			<td>manque</td>
-			<td>1000</td>
-		</tr>
-
-
+		{% endfor %}
 </table>
 
 {% endblock content %}
